@@ -3,7 +3,7 @@ import { useDrag } from "react-dnd"
 import { ItemTypes } from '../utils/items'
 import { IoIosCloseCircle } from 'react-icons/io';
 
-const RecipeCard = ({ page, recipe }) => {
+const RecipeCard = ({ page, recipe, onRemove }) => {
 
   // Drag n Drop
   const [{ isDragging }, dragRef] = useDrag({
@@ -32,7 +32,7 @@ const RecipeCard = ({ page, recipe }) => {
       </div>
       {
         page === "plan" &&
-        <div className="recipe-card-remove flex-center">
+        <div className="recipe-card-remove flex-center" onClick={onRemove}>
           <IoIosCloseCircle className="text-gray-400" size="24" />
         </div>
       }

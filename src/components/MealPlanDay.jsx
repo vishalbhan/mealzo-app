@@ -3,12 +3,12 @@ import { useDrop } from 'react-dnd'
 import { ItemTypes } from '../utils/items';
 import RecipeCard from './RecipeCard';
 
-const MealPlanDay = ({ dayIndex, name, items, addMealToDay, removeRecipe }) => {
+const MealPlanDay = ({ day }) => {
 
   const [{ isOver }, dropRef] = useDrop({
     accept: ItemTypes.CARD,
     drop: (item, monitor) => {
-      addMealToDay(dayIndex, item)
+      addMealToDay(day)
     },
     collect: monitor => ({
       isOver: !!monitor.isOver()

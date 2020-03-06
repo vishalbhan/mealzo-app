@@ -1,42 +1,13 @@
 import React from 'react'
-import MealPlanDay from './MealPlanDay';
+import Monday from './plan/Monday'
+import Tuesday from './plan/Tuesday'
+import Wednesday from './plan/Wednesday'
+import Thursday from './plan/Thursday'
+import Friday from './plan/Friday'
+import Saturday from './plan/Saturday'
+import Sunday from './plan/Sunday'
 
 export default function MealPlan() {
-
-  const [plan, setPlan] = React.useState([
-    {
-      day: "monday",
-      recipes: []
-    },
-    {
-      day: "tuesday",
-      recipes: []
-    },
-    {
-      day: "wednesday",
-      recipes: []
-    },
-    {
-      day: "thursday",
-      recipes: []
-    },
-    {
-      day: "friday",
-      recipes: []
-    },
-    {
-      day: "saturday",
-      recipes: []
-    },
-    {
-      day: "sunday",
-      recipes: []
-    }
-  ]);
-
-  const addMealToDay = ( dayIndex, item ) => {
-    plan[dayIndex].recipes.push(item)
-  }
 
   return (
     <div className="section bg-gray-100 h-screen p-5">
@@ -45,16 +16,13 @@ export default function MealPlan() {
       </div>
 
       <div className="meal-plan-grid">
-        {plan.map((day, index) => (
-          <div key={day.day}>
-            <MealPlanDay
-              dayIndex={index}
-              name={day.day}
-              items={day.recipes}
-              addMealToDay={addMealToDay}
-            />
-          </div>
-        ))}
+        <Monday />
+        <Tuesday />
+        <Wednesday />
+        <Thursday />
+        <Friday />
+        <Saturday />
+        <Sunday />
       </div>
     </div>
   );
